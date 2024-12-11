@@ -8,7 +8,7 @@ use Rizk\Blog\Models\User;
 class Exists implements Vaildator{
     public function check($key, $value)
     {
-        $userObject = new User;
+        $userObject = new User; //user is model
         $filter = ["email"=>$value];
         $user=$userObject->selectOne($filter);
         if($user == null){
