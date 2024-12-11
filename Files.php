@@ -34,10 +34,17 @@ class Files{
         move_uploaded_file($tmp_name,"path-that-you-need-to-store-files/$new_name");
     }
 
+    public function checkFileExists($file_name){
+        return (file_exists("path-that-you-need-to-store-files/$file_name"))? true : false;
+    }
+
     public function deleteImage($image){
-        $path = "full-path-of-the-file/$image";
+        $path = "path-that-you-need-to-store-files/$image";
         if(file_exists($path)){
             unlink($path);
+            return true;
+        }else{
+            return false;
         }
     }
 }
